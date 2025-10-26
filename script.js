@@ -11,6 +11,16 @@ const score = {
     tie: 0
 }
 
+const save = localStorage.getItem('rpsScore');
+
+if (save) {
+    const savedScore = JSON.parse(save);
+    score.win = savedScore.win;
+    score.loss = savedScore.loss;
+    score.tie = savedScore.tie;
+    scoreDisplay.innerText = `Wins: ${score.win}, Losses: ${score.loss}, Ties: ${score.tie}`;
+}
+
 function computerChoice() {
     const randomChoice = Math.floor(Math.random() * 3);
     return choices[randomChoice];
@@ -45,16 +55,19 @@ function playRound(playerChoice) {
 document.getElementById("rock").addEventListener("click", function() {
     playRound("Rock");
     intro.style.display = "none";
+    localStorage.setItem('rpsScore', JSON.stringify(score));
 });
 
 document.getElementById("paper").addEventListener("click", function() {
     playRound("Paper");
     intro.style.display = "none";
+    localStorage.setItem('rpsScore', JSON.stringify(score));
 });
 
 document.getElementById("scissors").addEventListener("click", function() {
     playRound("Scissors");
     intro.style.display = "none";
+    localStorage.setItem('rpsScore', JSON.stringify(score));
 });
 
 document.getElementById("reset").addEventListener('click', function() {
@@ -66,5 +79,6 @@ document.getElementById("reset").addEventListener('click', function() {
     score.win = 0;
     score.loss = 0;
     score.tie = 0;
-    scoreDisplay.innerText = "";;
+    scoreDisplay.innerText = `Wins: ${score.win}, Losses: ${score.loss}, Ties: ${score.tie}`;
+    localStorage.removeItem('rpsScore');
 });
