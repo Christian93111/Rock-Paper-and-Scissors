@@ -52,22 +52,17 @@ h1 {
     text-align: center;
 }
 
+#intro {
+    margin-top: 50px;
+    font-size: 1.3em;
+}
+
 #result {
     color: #667eea;
     font-size: 1.4em;
     font-weight: 700;
     text-align: center;
     margin: 10px 0;
-}
-
-#score {
-    text-align: center;
-    color: #4a5568;
-    font-size: 1.1em;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
-    margin-top: 10px;
 }
 
 .button-group {
@@ -85,7 +80,6 @@ button {
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
     overflow: hidden;

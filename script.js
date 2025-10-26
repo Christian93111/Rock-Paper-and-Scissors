@@ -2,6 +2,7 @@ const player = document.getElementById("player");
 const computer = document.getElementById("computer");
 const result = document.getElementById("result");
 const scoreDisplay = document.getElementById("score");
+const intro = document.getElementById("intro");
 
 const choices = ["Rock", "Paper", "Scissors"];
 const score = {
@@ -43,22 +44,27 @@ function playRound(playerChoice) {
 
 document.getElementById("rock").addEventListener("click", function() {
     playRound("Rock");
+    intro.style.display = "none";
 });
 
 document.getElementById("paper").addEventListener("click", function() {
     playRound("Paper");
+    intro.style.display = "none";
 });
 
 document.getElementById("scissors").addEventListener("click", function() {
     playRound("Scissors");
+    intro.style.display = "none";
 });
 
 document.getElementById("reset").addEventListener('click', function() {
+    intro.style.display = "block";
+    intro.innerText = "Pick one to Start the game";
     player.innerText = "";
     computer.innerText = "";
     result.innerText = "";
     score.win = 0;
     score.loss = 0;
     score.tie = 0;
-    scoreDisplay.innerText = "";
+    scoreDisplay.innerText = "";;
 });
