@@ -18,7 +18,7 @@ function computerChoice() {
 
 function playRound(playerChoice) {
     const computerPick = computerChoice();
-    player.innerText = `Player: ${playerChoice}`;
+    player.innerText = `You: ${playerChoice}`;
     computer.innerText = `Computer: ${computerPick}`;
 
     if (playerChoice === computerPick) {
