@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.game-info h3 {
+    color: #2d3748;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+#result {
+    color: #667eea;
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#score {
+    text-align: center;
+    color: #4a5568;
+    font-size: 1.1em;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 18px 24px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+#rock {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+}
+
+#rock:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(240, 147, 251, 0.6);
+}
+
+#paper {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+#paper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+}
+
+#scissors {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(67, 233, 123, 0.4);
+}
+
+#scissors:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(67, 233, 123, 0.6);
+}
+
+#reset {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+    grid-column: 1 / -1;
+    box-shadow: 0 4px 15px rgba(250, 112, 154, 0.4);
+}
+
+#reset:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(250, 112, 154, 0.6);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-info h3 {
+    animation: fadeIn 0.5s ease;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .button-group {
+        grid-template-columns: 1fr;
+    }
+
+    #reset {
+        grid-column: auto;
+    }
+}
